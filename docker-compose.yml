@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  db:
+    container_name: postgres13_ms_na_pratica
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5431:5432
+    volumes:
+      - postgres13_ms_na_pratica:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres13_ms_na_pratica:
